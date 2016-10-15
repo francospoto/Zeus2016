@@ -1,0 +1,48 @@
+﻿@model P2_MVCLogin.Models.UserModel
+          
+@{
+    ViewBag.Title = "Iniciar Sesión";
+}
+
+    <h3>@ViewBag.Title</h3>
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">                  
+            @using (Html.BeginForm("Login", "User", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new {@class = "form-horizontal", role = "form" }))
+            {
+                <hr />                
+                @Html.ValidationSummary(true, "", new { @class="text-danger"})
+                <div class="form-group">
+                        @Html.LabelFor(u => u.Email, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(u => u.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(u => u.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                        @Html.LabelFor(u => u.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(u => u.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(u => u.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button id="btnIngresar" type="submit" class="btn btn-primary">Ingresar</button>
+                    </div>
+                </div>
+            }
+                </section>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
